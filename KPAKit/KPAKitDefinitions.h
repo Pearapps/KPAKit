@@ -7,7 +7,7 @@
 //
 
 #import <CoreGraphics/CoreGraphics.h>
-
+#import <objc/NSObjCRuntime.h>
 // Blocks
 
 typedef void (^KPABlock)();
@@ -15,6 +15,7 @@ typedef void (^KPAObjectBlock)(id object);
 typedef void (^KPAPointerBlock)(void *x);
 
 typedef void (^KPABoundsBlock)(CGRect bounds);
+typedef void (^KPAIntegerBlock)(NSInteger i);
 
 // Geometry
 

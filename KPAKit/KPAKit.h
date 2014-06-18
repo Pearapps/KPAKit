@@ -17,6 +17,8 @@
 #import "NSMutableArray+KPAKit.h"
 #import "NSArray+KPAKit.h"
 #import "NSData+KPAKit.h"
+#import "UINavigationController+KPAKit.h"
+#import "NSNumber+KPAKit.h"
 
 // Beta
 #import "KPAPinnableView.h"
