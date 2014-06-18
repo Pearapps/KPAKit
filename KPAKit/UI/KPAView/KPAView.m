@@ -12,7 +12,7 @@
 
 - (void)setBounds:(CGRect)bounds {
     [super setBounds:bounds];
-    if (self.boundsChangeBlock) { self.boundsChangeBlock(); }
+    if (self.boundsChangeBlock) { self.boundsChangeBlock(bounds); }
 }
 
 - (void)dealloc {

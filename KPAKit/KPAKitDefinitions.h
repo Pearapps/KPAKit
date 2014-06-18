@@ -14,6 +14,8 @@ typedef void (^KPABlock)();
 typedef void (^KPAObjectBlock)(id object);
 typedef void (^KPAPointerBlock)(void *x);
 
+typedef void (^KPABoundsBlock)(CGRect bounds);
+
 // Geometry
 
 typedef struct {

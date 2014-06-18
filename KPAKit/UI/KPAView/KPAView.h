@@ -13,8 +13,8 @@
 
 /**
  * @property boundsChangeBlock This is the block.
- * @discussion This is the block that is called when the bounds change. Don't change the bounds of this view in this block.
+ * @discussion This is the block that is called when the bounds change. It will pass the new bounds value. Don't change the bounds of this view in this block.
  */
-@property (nonatomic, copy) KPABlock boundsChangeBlock;
+@property (nonatomic, copy) KPABoundsBlock boundsChangeBlock;
 
 @end

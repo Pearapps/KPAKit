@@ -10,22 +10,28 @@
 
 @implementation UIView (KPAKit)
 
-- (void)kpa_positionViewInView:(UIView *)view withPercentage:(KPA2dValue)percentage doesAllowEscapingViewBounds:(BOOL)doesAllowEscapingViewBounds {
-    
-    [self setCenter:CGPointMake(CGRectGetWidth(view.bounds) * percentage.x, CGRectGetHeight(view.bounds) * percentage.y)];
-    
-    if (!doesAllowEscapingViewBounds) {
-        [self kpa_repositionToKeepInView:view];
-    }
-    
+- (void)kpa_resizeBoundsInRelationToView:(UIView *)view withPercentage:(KPA2dValue)percentage {
+    [self kpa_resizeBoundsInRelationToBounds:view.bounds withPercentage:percentage];
 }
 
-- (void)kpa_resizeBoundsInRelationToView:(UIView *)view withPercentage:(KPA2dValue)percentage {
-    [self kpa_modifyBoundsSize:CGSizeMake(CGRectGetWidth(view.bounds) * percentage.x, CGRectGetHeight(view.bounds) * percentage.y)];
+- (void)kpa_resizeBoundsInRelationToBounds:(CGRect)bounds withPercentage:(KPA2dValue)percentage {
+    [self kpa_modifyBoundsSize:CGSizeMake(CGRectGetWidth(bounds) * percentage.x, CGRectGetHeight(bounds) * percentage.y)];
 }
 
 - (void)kpa_positionViewWithPercentage:(KPA2dValue)percentage doesAllowEscapingViewBounds:(BOOL)doesAllowEscapingViewBounds {
     [self kpa_positionViewInView:self.superview withPercentage:percentage doesAllowEscapingViewBounds:doesAllowEscapingViewBounds];
+}
+
+- (void)kpa_positionViewInView:(UIView *)view withPercentage:(KPA2dValue)percentage doesAllowEscapingViewBounds:(BOOL)doesAllowEscapingViewBounds {
+    [self kpa_positionViewInBounds:view.bounds withPercentage:percentage doesAllowEscapingViewBounds:doesAllowEscapingViewBounds];
+}
+
+- (void)kpa_positionViewInBounds:(CGRect)bounds withPercentage:(KPA2dValue)percentage doesAllowEscapingViewBounds:(BOOL)doesAllowEscapingViewBounds {
+    [self setCenter:CGPointMake(CGRectGetWidth(bounds) * percentage.x, CGRectGetHeight(bounds) * percentage.y)];
+    
+    if (!doesAllowEscapingViewBounds) {
+        [self kpa_repositionToKeepInBounds:bounds];
+    }
 }
 
 - (void)kpa_moveByAmount:(CGPoint)p {
@@ -37,16 +43,20 @@
 }
 
 - (void)kpa_repositionToKeepInView:(UIView *)view {
-    if (self.center.x - CGRectGetWidth(self.bounds)/2.f < view.bounds.origin.x) {
+    [self kpa_repositionToKeepInBounds:view.bounds];
+}
+
+- (void)kpa_repositionToKeepInBounds:(CGRect)bounds {
+    if (self.center.x - CGRectGetWidth(self.bounds)/2.f < bounds.origin.x) {
         self.center = CGPointMake(CGRectGetWidth(self.bounds)/2.f, self.center.y);
-    } else if (self.center.y - CGRectGetHeight(self.bounds)/2.f < view.bounds.origin.y) {
+    } else if (self.center.y - CGRectGetHeight(self.bounds)/2.f < bounds.origin.y) {
         self.center = CGPointMake(self.center.x, CGRectGetHeight(self.bounds)/2.f);
     }
     
-    if (self.center.x + CGRectGetWidth(self.bounds)/2.f > CGRectGetMaxX(view.bounds)) {
-        self.center = CGPointMake(CGRectGetMaxX(view.bounds) - CGRectGetWidth(self.bounds)/2.f, self.center.y);
-    } else if (self.center.y + CGRectGetHeight(self.bounds)/2.f > CGRectGetMaxY(view.bounds)) {
-        self.center = CGPointMake(self.center.x,  CGRectGetMaxY(view.bounds) - CGRectGetHeight(self.bounds)/2);
+    if (self.center.x + CGRectGetWidth(self.bounds)/2.f > CGRectGetMaxX(bounds)) {
+        self.center = CGPointMake(CGRectGetMaxX(bounds) - CGRectGetWidth(self.bounds)/2.f, self.center.y);
+    } else if (self.center.y + CGRectGetHeight(self.bounds)/2.f > CGRectGetMaxY(bounds)) {
+        self.center = CGPointMake(self.center.x,  CGRectGetMaxY(bounds) - CGRectGetHeight(self.bounds)/2);
     }
 }
 
