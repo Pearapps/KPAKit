@@ -7,6 +7,7 @@
 //
 
 #import "UIView+KPAKit.h"
+#import "KPAKit.h"
 
 @implementation UIView (KPAKit)
 
@@ -58,6 +59,14 @@
     } else if (self.center.y + CGRectGetHeight(self.bounds)/2.f > CGRectGetMaxY(bounds)) {
         self.center = CGPointMake(self.center.x,  CGRectGetMaxY(bounds) - CGRectGetHeight(self.bounds)/2);
     }
+}
+
+- (void)kpa_placeViewOffset:(CGPoint)offset ofView:(UIView *)view {
+    self.center = CGPointMake(view.center.x + offset.x, view.center.y + offset.y);
+}
+
+- (void)kpa_placeViewBetweenView:(UIView *)v1 andView:(UIView *)v2 {
+    self.center = kpa_midpoint(v1.center, v2.center);
 }
 
 - (CGSize)kpa_boundsSize {

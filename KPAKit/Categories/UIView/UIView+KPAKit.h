@@ -63,8 +63,17 @@
 - (void)kpa_repositionToKeepInBounds:(CGRect)bounds;
 
 /**
+ *
+ * @param offset The offset to set the position of in relation to the view passed in.
+ * @param view The view to offset with the offset passed in.
+ */
+- (void)kpa_placeViewOffset:(CGPoint)offset ofView:(UIView *)view;
+
+/**
  * @return This method will return the size of the view's bound.
  */
 - (CGSize)kpa_boundsSize;
+
+- (void)kpa_placeViewBetweenView:(UIView *)v1 andView:(UIView *)v2;
 
 @end
