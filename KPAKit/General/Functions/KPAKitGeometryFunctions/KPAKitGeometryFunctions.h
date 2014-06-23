@@ -9,4 +9,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 extern CGSize kpa_sizeByAddingSizes(CGSize size, CGSize otherSize);
+
+extern CGSize kpa_sizeByMultiplying(CGSize size, CGFloat multiplier);
+
 extern CGPoint kpa_midpoint(CGPoint p1, CGPoint p2);
