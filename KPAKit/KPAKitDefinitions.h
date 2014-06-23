@@ -8,6 +8,7 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <objc/NSObjCRuntime.h>
+
 // Blocks
 
 typedef void (^KPABlock)();
@@ -24,3 +25,13 @@ typedef struct {
 } KPA2dValue;
 
 #define KPA2dValueMake(x, y) (KPA2dValue){x, y}
+
+// Other Macros
+
+#define KPACreateSingleton(block) \
+static dispatch_once_t predicate = 0; \
+__strong static id shared = nil; \
+dispatch_once(&predicate, ^{ \
+shared = block(); \
+}); \
+return shared;
