@@ -12,6 +12,6 @@ Includes useful categories for the following classes:
 
 Includes useful subclasses for UIView and UIViewController to make laying out your code more automatic.
 
-Includes a high performance tree object.
+Includes a high performance tree object (KPATreeNode).
 
 Also includes useful general functions for GCD and geometry.
