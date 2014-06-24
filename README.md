@@ -9,9 +9,12 @@ Includes useful categories for the following classes:
 - UIView (Many methods to greatly enhance your layout code)
 - UINavigationController
 - NSNumber
+- UIColor
 
 Includes useful subclasses for UIView and UIViewController to make laying out your code more automatic.
 
-Includes a high performance tree object (KPATreeNode).
+Includes these custom classes:
+- KPATreeNode (A high performance tree class)
+- KPABorderedButton
 
 Also includes useful general functions for GCD and geometry.
