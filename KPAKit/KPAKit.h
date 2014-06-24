@@ -12,6 +12,7 @@
 #import "KPATreeNode.h"
 #import "KPAView.h"
 #import "KPAViewController.h"
+#import "KPABorderedButton.h"
 
 // Categories
 #import "NSMutableArray+KPAKit.h"
@@ -19,6 +20,7 @@
 #import "NSData+KPAKit.h"
 #import "UINavigationController+KPAKit.h"
 #import "NSNumber+KPAKit.h"
+#import "UIColor+KPAKit.h"
 
 // Beta
 #import "KPAPinnableView.h"
