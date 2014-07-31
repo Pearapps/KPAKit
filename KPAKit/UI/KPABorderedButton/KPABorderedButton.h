@@ -10,7 +10,7 @@
 
 @interface KPABorderedButton : UIButton
 
-+ (KPABorderedButton *)borderedButtonWithBorderWidth:(CGFloat)borderWidth andBorderColor:(UIColor *)borderColor andBorderRadius:(CGFloat)radius;
++ (instancetype)borderedButtonWithBorderWidth:(CGFloat)borderWidth andBorderColor:(UIColor *)borderColor andBorderRadius:(CGFloat)radius;
 
 @property (nonatomic, assign) BOOL highlightOnSelection;
 

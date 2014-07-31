@@ -17,7 +17,7 @@
 
 @implementation KPABorderedButton
 
-+ (KPABorderedButton *)borderedButtonWithBorderWidth:(CGFloat)borderWidth andBorderColor:(UIColor *)borderColor andBorderRadius:(CGFloat)radius {
++ (instancetype)borderedButtonWithBorderWidth:(CGFloat)borderWidth andBorderColor:(UIColor *)borderColor andBorderRadius:(CGFloat)radius {
     KPABorderedButton *button = [[self alloc] init];
     button.layer.borderWidth = borderWidth;
     button.layer.borderColor = borderColor.CGColor;

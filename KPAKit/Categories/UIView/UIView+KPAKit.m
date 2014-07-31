@@ -50,13 +50,13 @@
 - (void)kpa_repositionToKeepInBounds:(CGRect)bounds {
     if (self.center.x - CGRectGetWidth(self.bounds)/2.f < bounds.origin.x) {
         self.center = CGPointMake(CGRectGetWidth(self.bounds)/2.f, self.center.y);
-    } else if (self.center.y - CGRectGetHeight(self.bounds)/2.f < bounds.origin.y) {
+    } if (self.center.y - CGRectGetHeight(self.bounds)/2.f < bounds.origin.y) {
         self.center = CGPointMake(self.center.x, CGRectGetHeight(self.bounds)/2.f);
     }
     
     if (self.center.x + CGRectGetWidth(self.bounds)/2.f > CGRectGetMaxX(bounds)) {
         self.center = CGPointMake(CGRectGetMaxX(bounds) - CGRectGetWidth(self.bounds)/2.f, self.center.y);
-    } else if (self.center.y + CGRectGetHeight(self.bounds)/2.f > CGRectGetMaxY(bounds)) {
+    } if (self.center.y + CGRectGetHeight(self.bounds)/2.f > CGRectGetMaxY(bounds)) {
         self.center = CGPointMake(self.center.x,  CGRectGetMaxY(bounds) - CGRectGetHeight(self.bounds)/2);
     }
 }
